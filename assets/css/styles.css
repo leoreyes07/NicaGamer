@@ -120,8 +120,7 @@ body {
 
 
 .search__input {
-    display: none;
-    width: 20rem;
+    width: 0;
     height: 5rem;
     font-size: 1.6rem;
     background-color: var(--color-secondary);
@@ -137,7 +136,8 @@ body {
     opacity: 1;
 }
 
-.navbar__btn--search {
+.navbar__btn--search,
+.navbar__mobile--btn {
     background-color: var(--color-secondary);
     padding: 0.8rem 1.3rem;
     height: 5rem;
@@ -145,7 +145,8 @@ body {
     align-items: center;
 }
 
-.navbar__btn--search .fa-solid {
+.navbar__btn--search .fa-solid ,
+.navbar__mobile--btn .fa-solid{
     cursor: pointer;
     color: var(--color-primary);
     font-size: 2.7rem;
@@ -1163,6 +1164,7 @@ body {
 .posts__post {
     flex-basis: calc(50% - 2rem);
 }
+
 
 /* Estilos del aside */
 .layout__aside {
