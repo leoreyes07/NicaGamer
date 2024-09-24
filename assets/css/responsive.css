@@ -369,6 +369,7 @@
 
     .footer__text {
         width: 100%;
+        font-size: small;
     }
 }
 
