@@ -389,4 +389,9 @@
         min-width: auto;
         margin: 0;
     }
+
+    .footer__text {
+        width: 100%;
+        font-size: 1.3rem;
+    }
 }
