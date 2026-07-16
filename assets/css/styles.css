@@ -31,6 +31,7 @@ body {
     font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 1.6rem;
     background-color: var(--color-primary);
+    overflow-x: hidden;
 }
 
 /* Barra decorativa */
@@ -883,7 +884,7 @@ body {
 .layout__carousel--games {
     grid-area: carousel;
     width: 100%;
-    padding: 3rem;
+    padding: 3rem 0;
     margin-bottom: 6rem;
     background-color: var(--color-bg-navbar);
 }
@@ -896,6 +897,7 @@ body {
 }
 
 .carousel--games__item {
+    flex: 1;
     position: relative;
     overflow: hidden;
 }

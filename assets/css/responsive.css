@@ -1,0 +1,624 @@
+/* ===================================================================
+   NicaGame – Responsive CSS (Mobile First)
+   Breakpoints:
+     base (mobile)  →  < 480px
+     sm             →  >= 480px
+     md             →  >= 768px
+     lg             →  >= 992px   (desktop nav aparece)
+     xl             →  >= 1200px  (layout original completo)
+   =================================================================== */
+
+/* ─── Utilidades globales ─────────────────────────────────────────── */
+.no-scroll {
+  overflow: hidden;
+}
+
+/* ─── Overlay oscuro detrás del menú ─────────────────────────────── */
+#nav-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 98;
+  transition: opacity 300ms ease;
+}
+#nav-overlay.is-visible {
+  display: block;
+}
+
+/* ─── Botón Hamburger ─────────────────────────────────────────────── */
+#hamburger-btn {
+  display: none; /* oculto en desktop */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 4.4rem;
+  height: 4.4rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.8rem;
+  z-index: 200;
+  flex-shrink: 0;
+}
+
+#hamburger-btn span {
+  display: block;
+  width: 2.4rem;
+  height: 0.2rem;
+  background-color: var(--color-primary);
+  border-radius: 2px;
+  transition: transform 300ms ease, opacity 300ms ease;
+}
+
+/* Animación X cuando está activo */
+#hamburger-btn.is-active span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+#hamburger-btn.is-active span:nth-child(2) {
+  opacity: 0;
+}
+#hamburger-btn.is-active span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ─── BASE MOBILE (< 992px general, < 480px específico) ─────────── */
+@media (max-width: 1199px) {
+
+  /* Reset de tamaños fijos del layout original */
+  .layout {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-width: unset;
+    padding: 0 1.5rem;
+    box-sizing: border-box;
+  }
+
+  /* Footer también */
+  .footer__container {
+    width: 100%;
+    min-width: unset;
+    flex-direction: column;
+    padding: 2rem 1.5rem;
+    box-sizing: border-box;
+  }
+
+  .footer__text {
+    width: 100%;
+    white-space: normal;
+  }
+
+  /* Sliders en columna */
+  .layout__slider {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    margin-bottom: 2rem;
+  }
+
+  /* Highlights */
+  .highlights__posts,
+  .posts__container {
+    flex-wrap: wrap;
+  }
+
+  /* Videos */
+  .videos__container {
+    flex-direction: column;
+  }
+
+  /* Carousel de juegos */
+  .carousel--games__list {
+    flex-wrap: wrap;
+  }
+
+  .carousel--games__item {
+    flex-basis: calc(50% - 0.1rem);
+  }
+
+  /* Main + Aside en columna */
+  .layout__main {
+    margin-right: 0;
+  }
+
+  /* Footer fslider */
+  .footer_fslider {
+    width: 100%;
+    height: auto;
+  }
+}
+
+/* ─── MOBILE PEQUEÑO (< 480px) ────────────────────────────────────── */
+@media (max-width: 479px) {
+  html {
+    font-size: 9px;
+  }
+
+  .layout {
+    padding: 0 1rem;
+  }
+
+  /* Header */
+  .layout__header {
+    padding: 1.2rem 0;
+  }
+
+  .header__img {
+    width: 13rem;
+  }
+
+  /* Marquee */
+  .layout__marquee {
+    margin-bottom: 1.5rem;
+  }
+
+  /* Highlights y Posts: 1 columna */
+  .highlights__post,
+  .posts__post {
+    flex-basis: 100%;
+  }
+
+  /* News */
+  .news__post {
+    flex-basis: 100%;
+  }
+
+  /* Games section */
+  .games__item {
+    flex-basis: 100%;
+  }
+
+  /* Videos */
+  .main__video--yt__video {
+    height: 22rem;
+  }
+
+  /* Carousel de juegos: 1 columna */
+  .carousel--games__item {
+    flex-basis: 100%;
+  }
+
+  /* Footer */
+  .footer__left--container,
+  .footer__center--container,
+  .footer__right--container {
+    flex-basis: 100%;
+  }
+
+  /* Formulario login */
+  .aside__login {
+    padding: 1rem 0;
+  }
+
+  /* Social media */
+  .social__item {
+    padding: 0.8rem 1.5rem;
+  }
+
+  /* Submenús del navbar (mobile) */
+  .navbar__submenu {
+    position: static;
+    flex-direction: column;
+    opacity: 1;
+    visibility: visible;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 400ms ease;
+  }
+
+  .navbar__item.submenu-open .navbar__submenu {
+    max-height: 120rem;
+  }
+
+  /* Carousel submenu en mobile */
+  .carousel__menu {
+    flex-direction: column;
+  }
+
+  .carousel__container--img {
+    height: 18rem;
+    width: 100%;
+  }
+}
+
+/* ─── MOBILE MEDIANO (480px – 767px) ─────────────────────────────── */
+@media (min-width: 480px) and (max-width: 767px) {
+  html {
+    font-size: 9.5px;
+  }
+
+  .layout {
+    padding: 0 1.5rem;
+  }
+
+  /* Highlights: 1 col */
+  .highlights__post,
+  .posts__post {
+    flex-basis: 100%;
+  }
+
+  .news__post {
+    flex-basis: 100%;
+  }
+
+  .games__item {
+    flex-basis: calc(50% - 1.5rem);
+  }
+
+  .main__video--yt__video {
+    height: 28rem;
+  }
+
+  /* Footer */
+  .footer__left--container,
+  .footer__center--container,
+  .footer__right--container {
+    flex-basis: 100%;
+  }
+}
+
+/* ─── TABLET (768px – 991px) ─────────────────────────────────────── */
+@media (min-width: 768px) and (max-width: 991px) {
+  html {
+    font-size: 9.5px;
+  }
+
+  .layout {
+    padding: 0 2rem;
+  }
+
+  /* Slider: grid 2 columnas */
+  .layout__slider {
+    display: grid;
+    grid-template-areas:
+      "slider1 slider3"
+      "slider2 slider3"
+      "slider4 slider5";
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .highlights__post,
+  .posts__post {
+    flex-basis: calc(50% - 1.5rem);
+  }
+
+  .news__post {
+    flex-basis: calc(50% - 2rem);
+  }
+
+  .games__item {
+    flex-basis: calc(50% - 1.5rem);
+  }
+
+  .main__video--yt__video {
+    height: 35rem;
+  }
+
+  /* Footer: 2 columnas */
+  .footer__container {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .footer__left--container {
+    flex-basis: 100%;
+  }
+
+  .footer__center--container,
+  .footer__right--container {
+    flex-basis: calc(50% - 1.5rem);
+  }
+}
+
+/* ─── DESKTOP PEQUEÑO (992px – 1199px) ───────────────────────────── */
+@media (min-width: 992px) and (max-width: 1199px) {
+  html {
+    font-size: 9.5px;
+  }
+
+  /* Layout vuelve a grid 2 cols */
+  .layout {
+    display: grid;
+    grid-template-areas:
+      "header header"
+      "nav nav"
+      "marquee marquee"
+      "slider slider"
+      "high high"
+      "videos videos"
+      "carousel carousel"
+      "main aside";
+    grid-template-columns: 70% 30%;
+    width: 90vw;
+    min-width: unset;
+    padding: 0;
+  }
+
+  .layout__main {
+    margin-right: 2rem;
+  }
+
+  /* Slider en modo original */
+  .layout__slider {
+    display: grid;
+    grid-template-areas:
+      "slider1 slider3 slider3 slider4"
+      "slider2 slider3 slider3 slider5";
+    row-gap: 0.3rem;
+    column-gap: 0.3rem;
+  }
+
+  .footer__container {
+    width: 90%;
+    min-width: unset;
+    flex-direction: row;
+  }
+
+  .footer__text {
+    width: 90%;
+  }
+
+  .main__video--yt__video {
+    height: 35rem;
+  }
+}
+
+/* ─── DESKTOP PLENO (>= 1200px) ──────────────────────────────────── */
+@media (min-width: 1200px) {
+  /* El layout original ya define todo correctamente,
+     solo aseguramos que los overrides mobile no afecten */
+  .layout {
+    display: grid;
+    grid-template-areas:
+      "header header"
+      "nav nav"
+      "marquee marquee"
+      "slider slider"
+      "high high"
+      "videos videos"
+      "carousel carousel"
+      "main aside";
+    grid-template-columns: 70% 30%;
+    width: 55vw;
+    min-width: 100rem;
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  .layout__slider {
+    display: grid;
+    grid-template-areas:
+      "slider1 slider3 slider3 slider4"
+      "slider2 slider3 slider3 slider5";
+    row-gap: 0.3rem;
+    column-gap: 0.3rem;
+  }
+
+  .footer__container {
+    width: 55%;
+    min-width: 100rem;
+    flex-direction: row;
+  }
+
+  .footer__text {
+    width: 55%;
+    white-space: nowrap;
+  }
+}
+
+/* ─── NAVBAR MOBILE (< 992px) ────────────────────────────────────── */
+@media (max-width: 991px) {
+
+  /* Muestra el hamburger */
+  #hamburger-btn {
+    display: flex;
+  }
+
+  /* Oculta el nav de escritorio y lo convierte en drawer */
+  .layout__nav {
+    position: static;
+  }
+
+  .nav__navbar {
+    position: relative;
+    justify-content: space-between;
+    padding: 0 1rem;
+    min-height: 5rem;
+    max-height: none;
+  }
+
+  /* El ul de links se oculta */
+  .navbar__list {
+    display: none;
+  }
+
+  /* El formulario de búsqueda se oculta también */
+  .navbar__search {
+    display: none;
+  }
+
+  /* ── Menú drawer lateral ── */
+  #mobile-nav {
+    position: fixed;
+    top: 0;
+    left: -30rem;
+    width: 28rem;
+    max-width: 85vw;
+    height: 100vh;
+    background-color: var(--color-bg-navbar);
+    z-index: 99;
+    overflow-y: auto;
+    transition: left 300ms ease;
+    padding: 6rem 0 2rem;
+  }
+
+  #mobile-nav.is-open {
+    left: 0;
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.4);
+  }
+
+  /* Lista de items dentro del drawer */
+  #mobile-nav .navbar__list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  #mobile-nav .navbar__item {
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid var(--color-border-list);
+  }
+
+  #mobile-nav .navbar__item:hover {
+    background-color: transparent;
+  }
+
+  #mobile-nav .navbar__link {
+    display: block;
+    padding: 1.4rem 2rem;
+    font-size: 1.4rem;
+    border-left: 3px solid transparent;
+    transition: all 200ms ease;
+  }
+
+  #mobile-nav .navbar__item.submenu-open > .navbar__link {
+    border-left-color: var(--color-secondary);
+    background-color: rgba(255,255,255,0.05);
+  }
+
+  /* Submenús dentro del drawer */
+  #mobile-nav .navbar__submenu {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    width: 100%;
+    background-color: rgba(0,0,0,0.25);
+    flex-direction: column;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 400ms ease;
+  }
+
+  #mobile-nav .navbar__item.submenu-open .navbar__submenu {
+    max-height: 120rem;
+  }
+
+  /* Carousel dentro del drawer: columna */
+  #mobile-nav .submenu_carousel,
+  #mobile-nav .submenu__carousel {
+    display: block;
+  }
+
+  #mobile-nav .carousel__menu {
+    flex-direction: column;
+  }
+
+  #mobile-nav .carousel__item {
+    flex-basis: 100%;
+  }
+
+  #mobile-nav .carousel__container--img {
+    width: 100%;
+    height: 14rem;
+  }
+
+  #mobile-nav .navbar__sublist {
+    width: 100%;
+    display: block;
+  }
+
+  #mobile-nav .sublist__link {
+    display: block;
+    padding: 1rem 2.5rem;
+  }
+
+  /* Dropdown anidado dentro del drawer */
+  #mobile-nav .sublist__dropdown {
+    position: static;
+    width: 100%;
+    background-color: rgba(0,0,0,0.15);
+    visibility: visible;
+    opacity: 1;
+    padding: 0.5rem 1rem;
+  }
+
+  #mobile-nav .sublist__item:hover .sublist__dropdown {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* Buscador móvil dentro del drawer (abajo) */
+  #mobile-nav .navbar__search {
+    display: flex;
+    width: 100%;
+    padding: 1.5rem 2rem;
+    margin-top: 1rem;
+    border-top: 1px solid var(--color-border-list);
+  }
+
+  #mobile-nav .search__input {
+    display: block;
+    flex: 1;
+    height: 4rem;
+    font-size: 1.4rem;
+  }
+
+  #mobile-nav .navbar__btn--search {
+    height: 4rem;
+  }
+}
+
+/* ─── iframe responsive (ratio 16:9) ─────────────────────────────── */
+@media (max-width: 1199px) {
+  .main__video--yt__video {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+  }
+
+  .main__video--yt__video > iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+/* ─── Imágenes fluidas globales ───────────────────────────────────── */
+@media (max-width: 1199px) {
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .slider__img,
+  .carousel__img,
+  .carousel--games__img,
+  .highlights__img img,
+  .post__img,
+  .video__img,
+  .news__img,
+  .recent__img,
+  .footer__slider--img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  /* Slider container: altura fija para mobile */
+  .slider__container {
+    min-height: 16rem;
+  }
+
+  /* Carousel de nav: altura razonable en tablet */
+  .carousel__container--img {
+    height: 22rem;
+  }
+}

@@ -12,6 +12,7 @@
     <!-- Estilos -->
     <link rel="stylesheet" href="./assets/css/reset.css">
     <link rel="stylesheet" href="./assets/css/styles.css">
+    <link rel="stylesheet" href="./assets/css/responsive.css">
 
     <!-- JS -->
 
@@ -36,8 +37,103 @@
         </header>
 
         <!-- Navbar -->
+        <!-- Overlay y drawer móvil -->
+        <div id="nav-overlay"></div>
+
+        <nav id="mobile-nav" aria-label="Menú móvil">
+            <ul class="navbar__list">
+                <li class="navbar__item">
+                    <a href="#" class="navbar__link">NOTICIAS</a>
+                    <div class="navbar__submenu">
+                        <ul class="navbar__sublist">
+                            <li class="sublist__item"><a href="#" class="sublist__link">Videojuegos</a></li>
+                            <li class="sublist__item"><a href="#" class="sublist__link">Novedades</a></li>
+                            <li class="sublist__item">
+                                <a href="#" class="sublist__link">Otros</a>
+                                <ul class="sublist__dropdown">
+                                    <li class="dropdown__item"><a href="#" class="dropdown__link">Cine</a></li>
+                                    <li class="dropdown__item"><a href="#" class="dropdown__link">Tecnologia</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="navbar__item">
+                    <a href="#" class="navbar__link">ANALISIS</a>
+                    <div class="navbar__submenu">
+                        <div class="submenu__carousel">
+                            <ul class="carousel__menu">
+                                <li class="carousel__item">
+                                    <div class="carousel__container--img"><img src="./assets/img/game-5-1.jpg" class="carousel__img"></div>
+                                    <div class="carousel__detail"><h3 class="carousel__title"><a href="#" class="carousel__link">SIFU el juego de peleas mas dificil</a></h3></div>
+                                </li>
+                                <li class="carousel__item">
+                                    <div class="carousel__container--img"><img src="./assets/img/game-6.jpg" class="carousel__img"></div>
+                                    <div class="carousel__detail"><h3 class="carousel__title"><a href="#" class="carousel__link">Trailer FC24</a></h3></div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li class="navbar__item">
+                    <a href="#" class="navbar__link">JUEGOS</a>
+                    <div class="navbar__submenu">
+                        <div class="submenu__carousel">
+                            <ul class="carousel__menu">
+                                <li class="carousel__item">
+                                    <div class="carousel__container--img"><img src="./assets/img/game-10.jpg" class="carousel__img"></div>
+                                    <div class="carousel__detail"><h3 class="carousel__title"><a href="#" class="carousel__link">Review Rachet and Clank</a></h3></div>
+                                </li>
+                                <li class="carousel__item">
+                                    <div class="carousel__container--img"><img src="./assets/img/game-19.jpg" class="carousel__img"></div>
+                                    <div class="carousel__detail"><h3 class="carousel__title"><a href="#" class="carousel__link">Valorant es mejor que CSGO</a></h3></div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li class="navbar__item">
+                    <a href="#" class="navbar__link">CATEGORIAS</a>
+                    <div class="navbar__submenu">
+                        <ul class="navbar__sublist">
+                            <li class="sublist__item"><a href="#" class="sublist__link">Accion</a></li>
+                            <li class="sublist__item"><a href="#" class="sublist__link">Sandbox</a></li>
+                            <li class="sublist__item"><a href="#" class="sublist__link">Lucha</a></li>
+                            <li class="sublist__item"><a href="#" class="sublist__link">Carreras</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="navbar__item">
+                    <a href="#" class="navbar__link">RANKING</a>
+                    <div class="navbar__submenu">
+                        <div class="submenu__carousel">
+                            <ul class="carousel__menu">
+                                <li class="carousel__item">
+                                    <div class="carousel__container--img"><img src="./assets/img/game-14.jpeg" class="carousel__img"></div>
+                                    <div class="carousel__detail"><h3 class="carousel__title"><a href="#" class="carousel__link">Trailer Biomutant</a></h3></div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
+            <form class="navbar__search">
+                <input type="text" class="search__input" name="search" placeholder="Buscar">
+                <div class="navbar__btn--search">
+                    <a href="#" class="navbar__button"><i class="fa-solid fa-magnifying-glass"></i></a>
+                </div>
+            </form>
+        </nav>
+
         <section class="layout__nav">
             <nav class="nav__navbar">
+                <!-- Botón hamburger (solo visible en mobile) -->
+                <button id="hamburger-btn" aria-label="Abrir menú" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
                 <ul class="navbar__list">
                     <li class="navbar__item">
                         <a href="#" class="navbar__link">
@@ -900,10 +996,10 @@
             <div class="videos__container">
                 <div class="main__video">
                     <div class="main__video--yt__video">
-                        <iframe src="https://www.youtube.com/embed/R2Ebc_OFeug?si=SeBUaxYVifqT_VyJ"
+                        <iframe src="https://www.youtube.com/embed/R2Ebc_OFeug"
                             title="YouTube video player" frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            allowfullscreen></iframe>
                     </div>
 
                     <div class="main__video--detail">
@@ -2339,6 +2435,8 @@
             </div>
         </section>
     </footer>
+    <!-- JS -->
+    <script src="./assets/js/menu.js"></script>
 </body>
 
 </html>
