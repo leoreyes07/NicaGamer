@@ -1,7 +1,8 @@
 /* Variables */
 :root {
     --color-primary: #fff;
-    --color-secondary: #329153;
+    --color-text-light: #ffffff;
+    --color-secondary: #10b981; /* Verde esmeralda moderno */
     --color-bg-navbar: #333946;
     --color-border-list: rgba(255, 255, 255, 0.3);
     --color-hover-sublist-item: rgba(0, 0, 0, 0.1);
@@ -10,7 +11,7 @@
     --color-text-marquee: #7c7c7c;
     --color-titles: #333333;
     --color-bg-aside: #f5f5f5;
-    --color-twitter: #2fc2ef;
+    --color-x: #000000;
     --color-facebook: #4c66a4;
     --color-youtube: #F40000;
     --color-instagram: #B4367B;
@@ -18,6 +19,22 @@
     --color-bg-footer: #222222;
     --color-bg-footer-down: #111111;
 
+    /* Variables de diseño moderno */
+    --radius-sm: 4px;
+    --radius-md: 12px;
+    --transition: all 0.3s ease;
+    --shadow-glow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+body.dark-mode {
+    --color-primary: #0f172a; /* Fondo principal oscuro */
+    --color-bg-navbar: #1e293b;
+    --color-bg-marquee: #1e293b;
+    --color-bg-aside: #1e293b;
+    --color-titles: #f1f5f9;
+    --color-text-marquee: #cbd5e1;
+    --color-shadow: rgba(0, 0, 0, 0.5);
+    --color-border-list: rgba(255, 255, 255, 0.1);
 }
 /* Estilos generales */
 html{
@@ -28,10 +45,12 @@ html{
 body {
     width: 100%;
     height: 100%;
-    font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: 'Outfit', "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 1.6rem;
     background-color: var(--color-primary);
+    color: var(--color-titles);
     overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Barra decorativa */
@@ -75,8 +94,8 @@ body {
 /* Estilos de la navbar */
 .layout__nav {
     grid-area: nav;
-
     position: relative;
+    z-index: 50;
     width: 100%;
 }
 
@@ -89,7 +108,7 @@ body {
     min-height: 5rem;
     max-height: 5rem;
     width: 100%;
-    color: var(--color-primary);
+    color: var(--color-text-light);
     background-color: var(--color-bg-navbar);  
 }
 
@@ -111,7 +130,7 @@ body {
     font-weight: 700;
     font-size: 1.3rem;
     padding: 1.5rem 1.5rem;
-    color: var(--color-primary);
+    color: var(--color-text-light);
 }
 
 .navbar__search {
@@ -126,14 +145,14 @@ body {
     height: 5rem;
     font-size: 1.6rem;
     background-color: var(--color-secondary);
-    columns: var(--color-primary);
+    color: var(--color-text-light);
     outline: none;
     border: none;
     transition: all 200ms ease-out;
 }
 
 .search__input::placeholder {
-    color: var(--color-primary);
+    color: var(--color-text-light);
     padding: 0.5rem;
     opacity: 1;
 }
@@ -148,7 +167,7 @@ body {
 
 .navbar__btn--search .fa-solid {
     cursor: pointer;
-    color: var(--color-primary);
+    color: var(--color-text-light);
     font-size: 2.7rem;
 
 }
@@ -211,7 +230,7 @@ body {
 }
 
 .sublist__link {
-    color: var(--color-primary);
+    color: var(--color-text-light);
     padding: 0.5rem 1rem;
     font-size: 1.2rem;
     font-weight: 400;
@@ -248,7 +267,7 @@ body {
 }
 
 .dropdown__link {
-    color: var(--color-bg-navbar);
+    color: var(--color-titles);
     padding: 0.5rem 1rem;
     font-size: 1.2rem;
     font-weight: 400;
@@ -312,7 +331,7 @@ body {
     width: 100%;
     height: 100%;
     border-radius: 3.2rem;
-    border: 2px solid var(--color-primary);
+    border: 2px solid var(--color-text-light);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -331,11 +350,11 @@ body {
 .rating__score,
 .circle__score {
     font-weight: 700;
-    color: var(--color-primary);
+    color: var(--color-text-light);
 }
 
 .carousel__link {
-    color: var(--color-primary);
+    color: var(--color-text-light);
     font-size: 1.8rem;
     background-color: var(--color-shadow);
     text-shadow: 1px 1px 3px black;
@@ -360,7 +379,7 @@ body {
     font-weight: 500;
     font-size: 1.1rem;
     text-shadow: 1px 1px 3px var(--color-titles);
-    color: var(--color-primary);
+    color: var(--color-text-light);
     transition: all 300ms ease;
 }
 
@@ -381,7 +400,7 @@ body {
 }
 
 .carousel--games__link {
-    color: var(--color-primary);
+    color: var(--color-text-light);
     transition: all 300ms ease;
 }
 
@@ -409,19 +428,23 @@ body {
 .marquee__container{
     display: flex;
     overflow: hidden;
+    flex: 1;
+    min-width: 0;
 }
 
 .marquee__header {
     position: relative;
     z-index: 5;
+    flex-shrink: 0;
     font-weight: 400;
     font-size: 1.2rem;
     text-transform: uppercase;
     white-space: nowrap;
-    color: var(--color-primary);
+    color: var(--color-text-light);
     background-color: var(--color-secondary);
     padding: 0.5rem;
     margin-right: 1rem;
+    border-radius: var(--radius-sm);
 }
 
 .marquee__list {
@@ -429,11 +452,21 @@ body {
     flex-direction: row;
     align-items: center;
     gap: 10rem;
+    flex-wrap: nowrap;
+    width: max-content;
+    animation: scroll-marquee 30s linear infinite;
 }
 
-.marquee_item:first-child {
-    margin-left: 10rem;
+@keyframes scroll-marquee {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
 }
+
+
 
 .marquee__title {
     font-size: 1.4rem;
@@ -512,7 +545,7 @@ body {
     left: 0;
     right: 0;
     padding: 1rem;
-    color: var(--color-primary);
+    color: var(--color-text-light);
 }
 
 .slider__category {
@@ -533,7 +566,7 @@ body {
 .slider__link--title {
     font-size: 1.5rem;
     text-shadow: 1px 1px 3px var(--color-bg-navbar);
-    color: var(--color-primary);
+    color: var(--color-text-light);
     text-transform: uppercase;
     
 }
@@ -608,7 +641,7 @@ body {
     font-size: 1.1rem;
     text-transform: uppercase;
     display: block;
-    color: var(--color-primary);
+    color: var(--color-text-light);
 }
 
 .highlights__title,
@@ -733,7 +766,9 @@ body {
     border: 1px solid var(--color-text-marquee);
     font-weight: 500;
     font-size: 1.1rem;
-    padding: 0.4rem;
+    padding: 0.8rem 1.5rem;
+    display: inline-block;
+    text-align: center;
     text-transform: capitalize;
     margin-bottom: 2rem;
 }
@@ -742,7 +777,7 @@ body {
 .main--post__read--more:hover,
 .post__read--more:hover {
     border: 1px solid var(--color-secondary);
-    color: var(--color-primary);
+    color: var(--color-text-light);
     background-color: var(--color-secondary);
 }
 
@@ -760,6 +795,7 @@ body {
     margin-bottom: 3rem;
     background-color: var(--color-bg-navbar);
     padding: 0.5rem;
+    border-radius: var(--radius-md);
 }
 
 .subheader__title,
@@ -772,8 +808,9 @@ body {
     text-transform: uppercase;
     white-space: nowrap;
     padding: 0.5rem;
-    color: var(--color-primary);
+    color: var(--color-text-light);
     background-color: var(--color-secondary);
+    border-radius: var(--radius-sm);
 }
 
 
@@ -884,7 +921,7 @@ body {
 .layout__carousel--games {
     grid-area: carousel;
     width: 100%;
-    padding: 3rem 0;
+    padding: 3rem;
     margin-bottom: 6rem;
     background-color: var(--color-bg-navbar);
 }
@@ -971,7 +1008,7 @@ body {
     font-size: 1.1rem;
     font-weight: 400;
     text-transform: uppercase;
-    color: var(--color-primary);
+    color: var(--color-text-light);
 }
 
 .main--post__info {
@@ -1127,7 +1164,7 @@ body {
 }
 
 .games__link--title {
-    color: var(--color-primary);
+    color: var(--color-text-light);
     transition: all 300ms ease;
 }
 
@@ -1151,7 +1188,7 @@ body {
 
 .list__header--small {
     font-weight: 400;
-    color: var(--color-primary);
+    color: var(--color-text-light);
     font-size: 1.1rem;
     text-transform: uppercase;
     padding: 0.5rem;
@@ -1210,7 +1247,7 @@ body {
     width: 100%;
     height: 3.5rem;
     background-color: var(--color-secondary);
-    color: var(--color-primary);
+    color: var(--color-text-light);
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 0.3rem;
     padding: 0.7rem;
@@ -1242,9 +1279,9 @@ body {
     width: 100%;
     margin-bottom: 1rem;
     padding: 1rem 2rem;
-    color: var(--color-primary);
+    color: var(--color-text-light);
     transition: all 300ms ease;
-    background-color: var(--color-twitter);
+    background-color: var(--color-x);
 }
 
 .social__item:hover {
@@ -1254,7 +1291,7 @@ body {
 .social__link {
     display: flex;
     flex-direction: row;
-    color: var(--color-primary);
+    color: var(--color-text-light);
 }
 
 .social__icon {
@@ -1278,7 +1315,7 @@ body {
 }
 
 .social__item--light__blue {
-    background-color: var(--color-twitter);
+    background-color: var(--color-x);
 }
 
 .social__item--dark__blue {
@@ -1302,8 +1339,8 @@ body {
     font-size: 1.3rem;
     padding: 1.2rem;
     margin-bottom: 3rem;
-    background-color: var(--color-twitter);
-    color: var(--color-primary);
+    background-color: var(--color-x);
+    color: var(--color-text-light);
 }
 
 .tweets__header {
@@ -1503,8 +1540,8 @@ body {
 
 .posts__btn--readmore:hover {
     background-color: var(--color-secondary);
-    color: var(--color-primary);
-    border: 1px solid var(--color-primary);
+    color: var(--color-text-light);
+    border: 1px solid var(--color-text-light);
     font-weight: 600;
 }
 
@@ -1522,7 +1559,7 @@ body {
     display: flex;
     flex-direction: row;
     gap: 3rem;
-    color: var(--color-primary);
+    color: var(--color-text-light);
 }
 
 .footer__left--container {
@@ -1545,7 +1582,7 @@ body {
 
 .about__descript {
     font-size: 1.3rem;
-    color: var(--color-primary);
+    color: var(--color-text-light);
 }
 
 .tags__container {
@@ -1560,7 +1597,7 @@ body {
     display: inline-block;
     padding: 0.5rem 1rem;
     font-size: 1.3rem;
-    color: var(--color-primary);
+    color: var(--color-text-light);
     background-color: var(--color-secondary);
     border: 2px solid var(--color-secondary);
     border-radius: 0.3rem;
@@ -1692,7 +1729,7 @@ body {
 
 .footer__description {
     padding: 2rem;
-    color: var(--color-primary);
+    color: var(--color-text-light);
     background-color: var(--color-bg-footer-down);
     text-align: center;
 }
@@ -1702,4 +1739,43 @@ body {
     margin: 0 auto;
     font-size: 1.5rem;
     white-space: nowrap;
+}
+
+/* --- Modernización UI (Dark Mode y Bordes) --- */
+/* Tarjetas, Imágenes y Contenedores */
+.carousel__item, .carousel--games__item, .highlights__post, .post__container--image, .main__video--yt__video, .news__image, .main--post__image, .games__container--image, .social__item, .news__item, .post__item, .videos__video, .popular__post img, .tweets__header img, .aside__widget, .submenu__carousel img {
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-glow);
+    transition: var(--transition);
+}
+
+/* Espaciado interno para el texto dentro de las tarjetas */
+.highlights__details, .games__details, .post__details, .recent__details, .video__detail, .news__detail, .carousel__detail {
+    padding: 1.5rem;
+}
+
+/* Efecto hover general de levantamiento y brillo para tarjetas */
+.carousel__item:hover, .carousel--games__item:hover, .highlights__post:hover, .social__item:hover, .news__main--post:hover, .news__item:hover, .videos__video:hover, .games__item:hover, .post__item:hover, .popular__post:hover, .aside__widget:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+}
+
+/* Botones, Inputs y Badges */
+.form__submit, .form__input, .search__input, .navbar__btn--search, .posts__btn--readmore, .tags__link, .tweets__follow, .slider__btn, .news__btn, .category__btn, .carousel__link, .post__read--more, .main--post__read--more, .footer-post__read-more, .footer__input, .footer__btn, .navbar__item, .navbar__submenu {
+    border-radius: var(--radius-md);
+    transition: var(--transition);
+}
+
+/* Efecto hover en botones */
+.form__submit:hover, .navbar__btn--search:hover, .posts__btn--readmore:hover, .tags__link:hover, .tweets__follow:hover, .slider__btn:hover, .news__btn:hover, .category__btn:hover, .post__read--more:hover, .main--post__read--more:hover, .footer-post__read-more:hover, .footer__btn:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-glow);
+}
+
+/* Hover específico para el icono del theme */
+.header__theme-btn:hover {
+    color: var(--color-secondary) !important;
+    transform: scale(1.1);
+    transition: var(--transition);
 }

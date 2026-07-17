@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./assets/fonts/fontawesome-free-6.1.2-web/css/all.min.css">
     <link rel="stylesheet" href="./assets/fonts/montserrat/monserrat.css">
 
@@ -28,11 +31,16 @@
     <!-- Estructura principal -->
     <div class="layout">
         <!-- Cabecera -->
-        <header class="layout__header">
+        <header class="layout__header" style="display: flex; justify-content: space-between; align-items: center;">
             <div class="header_tittle">
                 <a href="#" class="header__link">
                     <img src="./assets/img/logo1.png" class="header__img" alt="logo">
                 </a>
+            </div>
+
+            <!-- Botón Dark Mode -->
+            <div id="theme-toggle" class="header__theme-btn" style="cursor:pointer; font-size: 2.2rem; color: var(--color-titles); transition: var(--transition);">
+                <i class="fa-solid fa-moon"></i>
             </div>
         </header>
 
@@ -666,6 +674,57 @@
 
             <div class="marquee__container">
                 <ul class="marquee__list">
+                    <li class="marquee_item">
+                        <h4 class="marquee__title">
+                            <a href="#" class="marquee__link">La nueva PS5</a>
+                        </h4>
+                    </li>
+                    <li class="marquee_item">
+                        <h4 class="marquee__title">
+                            <a href="#" class="marquee__link">The Last of Us 1 Re-make</a>
+                        </h4>
+                    </li>
+                    <li class="marquee_item">
+                        <h4 class="marquee__title">
+                            <a href="#" class="marquee__link">Analisis Elden Ring</a>
+                        </h4>
+                    </li>
+                    <li class="marquee_item">
+                        <h4 class="marquee__title">
+                            <a href="#" class="marquee__link">Trailer FC24</a>
+                        </h4>
+                    </li>
+                    <li class="marquee_item">
+                        <h4 class="marquee__title">
+                            <a href="#" class="marquee__link">Analisis Disney Speedstorm</a>
+                        </h4>
+                    </li>
+                    <li class="marquee_item">
+                        <h4 class="marquee__title">
+                            <a href="#" class="marquee__link">Analisis GTA 6</a>
+                        </h4>
+                    </li>
+                    <li class="marquee_item">
+                        <h4 class="marquee__title">
+                            <a href="#" class="marquee__link">Gameplay Gotham Nights</a>
+                        </h4>
+                    </li>
+                    <li class="marquee_item">
+                        <h4 class="marquee__title">
+                            <a href="#" class="marquee__link">Analisis UFC-4</a>
+                        </h4>
+                    </li>
+                    <li class="marquee_item">
+                        <h4 class="marquee__title">
+                            <a href="#" class="marquee__link">Gameplay Forza Horizon 5</a>
+                        </h4>
+                    </li>
+                    <li class="marquee_item">
+                        <h4 class="marquee__title">
+                            <a href="#" class="marquee__link">Goty Its Take Two</a>
+                        </h4>
+                    </li>
+                    <!-- Elementos duplicados para el scroll infinito -->
                     <li class="marquee_item">
                         <h4 class="marquee__title">
                             <a href="#" class="marquee__link">La nueva PS5</a>
@@ -1856,7 +1915,7 @@
                     <li class="social__item social__item--light__blue">
                         <a href="#" class="social__link">
                             <div class="social__icon">
-                                <i class="fa-brands fa-twitter"></i>
+                                <svg class="fa-brands" viewBox="0 0 512 512" style="width: 1em; height: 1em; fill: currentColor;"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>
                             </div>
 
                             <div class="social__followers">
@@ -1922,8 +1981,8 @@
 
             <section class="aside__tweets">
                 <header class="tweets__header">
-                    <i class="fa-brands fa-twitter"></i>
-                    <h3 class="tweets__title">Ultimos tweets</h3>
+                    <svg class="fa-brands" viewBox="0 0 512 512" style="width: 1em; height: 1em; fill: currentColor;"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>
+                    <h3 class="tweets__title">Ultimos posts</h3>
                 </header>
                 <p class="tweets__content">
                     @Gamer357: Lorem ipsum, dolor sit amet consectetur adipisicing elit amet.
@@ -2431,12 +2490,40 @@
 
         <section class="footer__description">
             <div class="footer__text">
-                &copy; Copyright 2024, Todos los derechos reservados Leo
+                &copy; Copyright 2026, Todos los derechos reservados Leonardo Reyes
             </div>
         </section>
     </footer>
+
     <!-- JS -->
     <script src="./assets/js/menu.js"></script>
+    <script>
+        // Lógica del Dark Mode
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+        const icon = themeToggle.querySelector('i');
+
+        // Check local storage for theme
+        if (localStorage.getItem('theme') === 'dark') {
+            body.classList.add('dark-mode');
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            
+            if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('theme', 'dark');
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            } else {
+                localStorage.setItem('theme', 'light');
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            }
+        });
+    </script>
 </body>
 
 </html>
