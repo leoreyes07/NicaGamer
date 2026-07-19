@@ -60,7 +60,7 @@
                                 <a href="#" class="sublist__link">Otros</a>
                                 <ul class="sublist__dropdown">
                                     <li class="dropdown__item"><a href="#" class="dropdown__link">Cine</a></li>
-                                    <li class="dropdown__item"><a href="#" class="dropdown__link">Tecnologia</a></li>
+                                    <li class="dropdown__item"><a href="#" class="dropdown__link">Tecnología</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -200,7 +200,7 @@
                                         <div class="carousel__detail">
                                             <h3 class="carousel__title">
                                                 <a href="#" class="carousel__link">
-                                                    Battlefield 2042 es el mejor de la saga?
+                                                    ¿Battlefield 2042 es el mejor de la saga?
                                                 </a>
                                             </h3>
                                         </div>
@@ -236,7 +236,7 @@
                                         <div class="carousel__detail">
                                             <h3 class="carousel__title">
                                                 <a href="#" class="carousel__link">
-                                                    The Last Of Us 1 remake es mejor que el original?
+                                                    ¿The Last Of Us 1 remake es mejor que el original?
                                                 </a>
                                             </h3>
                                         </div>
@@ -287,7 +287,7 @@
                                         <div class="carousel__detail">
                                             <h3 class="carousel__title">
                                                 <a href="#" class="carousel__link">
-                                                    SIFU el juego de peleas mas dificil
+                                                    SIFU el juego de peleas más difícil
                                                 </a>
                                             </h3>
                                         </div>
@@ -341,7 +341,7 @@
                                         <div class="carousel__detail">
                                             <h3 class="carousel__title">
                                                 <a href="#" class="carousel__link">
-                                                    Multiversus es mejor que Super Smash bros
+                                                    Multiversus es mejor que Super Smash Bros
                                                 </a>
                                             </h3>
                                         </div>
@@ -386,7 +386,7 @@
                                         <div class="carousel__detail">
                                             <h3 class="carousel__title">
                                                 <a href="#" class="carousel__link">
-                                                    Detalles Incribles de Forza Horizon 5
+                                                    Detalles Increíbles de Forza Horizon 5
                                                 </a>
                                             </h3>
                                         </div>
@@ -2497,33 +2497,6 @@
 
     <!-- JS -->
     <script src="./assets/js/menu.js"></script>
-    <script>
-        // Lógica del Dark Mode
-        const themeToggle = document.getElementById('theme-toggle');
-        const body = document.body;
-        const icon = themeToggle.querySelector('i');
-
-        // Check local storage for theme
-        if (localStorage.getItem('theme') === 'dark') {
-            body.classList.add('dark-mode');
-            icon.classList.remove('fa-moon');
-            icon.classList.add('fa-sun');
-        }
-
-        themeToggle.addEventListener('click', () => {
-            body.classList.toggle('dark-mode');
-            
-            if (body.classList.contains('dark-mode')) {
-                localStorage.setItem('theme', 'dark');
-                icon.classList.remove('fa-moon');
-                icon.classList.add('fa-sun');
-            } else {
-                localStorage.setItem('theme', 'light');
-                icon.classList.remove('fa-sun');
-                icon.classList.add('fa-moon');
-            }
-        });
-    </script>
 </body>
 
 </html>
